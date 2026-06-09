@@ -1,0 +1,156 @@
+======================================================================
+  THREE-MODALITY FEATURE FUSION (FCN_Balanced)
+======================================================================
+  Threshold: ≥10
+  PCA dims: [128, 256]
+  Dropout variants: [0.3, 0.4]
+  Epochs: 100, Patience: 12, LR: 0.001
+======================================================================
+
+[1] Loading modalities...
+    DINOv2: (3094, 768)
+    HuBERT: (3095, 768)
+    Swin: (3094, 1024)
+    ConvNeXt: (3094, 1024)
+
+[2] Running 3 combos × 2 PCA × 2 dropout × 5 folds = 60 training runs
+
+
+  ════════════════════════════════════════════════════════════
+  DINOv2+HuBERT+Swin
+  ════════════════════════════════════════════════════════════
+    Aligned: 3094 samples
+    After threshold ≥10: 1946 samples, 89 classes
+
+    PCA=128, Drop=0.3
+      Fold 1: 0.7237
+      Fold 2: 0.7242
+      Fold 3: 0.7298
+      Fold 4: 0.7165
+      Fold 5: 0.7240
+      → Mean: 0.7236 ± 0.0042
+
+    PCA=128, Drop=0.4
+      Fold 1: 0.7185
+      Fold 2: 0.7321
+      Fold 3: 0.7261
+      Fold 4: 0.7179
+      Fold 5: 0.7311
+      → Mean: 0.7252 ± 0.0060
+
+    PCA=256, Drop=0.3
+      Fold 1: 0.7375
+      Fold 2: 0.7410
+      Fold 3: 0.7421
+      Fold 4: 0.7383
+      Fold 5: 0.7386
+      → Mean: 0.7395 ± 0.0018
+
+    PCA=256, Drop=0.4
+      Fold 1: 0.7371
+      Fold 2: 0.7398
+      Fold 3: 0.7427
+      Fold 4: 0.7414
+      Fold 5: 0.7363
+      → Mean: 0.7395 ± 0.0024
+
+  ════════════════════════════════════════════════════════════
+  DINOv2+HuBERT+ConvNeXt
+  ════════════════════════════════════════════════════════════
+    Aligned: 3094 samples
+    After threshold ≥10: 1946 samples, 89 classes
+
+    PCA=128, Drop=0.3
+      Fold 1: 0.7270
+      Fold 2: 0.7304
+      Fold 3: 0.7280
+      Fold 4: 0.7271
+      Fold 5: 0.7187
+      → Mean: 0.7262 ± 0.0040
+
+    PCA=128, Drop=0.4
+      Fold 1: 0.7199
+      Fold 2: 0.7332
+      Fold 3: 0.7320
+      Fold 4: 0.7210
+      Fold 5: 0.7242
+      → Mean: 0.7261 ± 0.0055
+
+    PCA=256, Drop=0.3
+      Fold 1: 0.7367
+      Fold 2: 0.7414
+      Fold 3: 0.7439
+      Fold 4: 0.7425
+      Fold 5: 0.7389
+      → Mean: 0.7407 ± 0.0026
+
+    PCA=256, Drop=0.4
+      Fold 1: 0.7377
+      Fold 2: 0.7450
+      Fold 3: 0.7463
+      Fold 4: 0.7401
+      Fold 5: 0.7380
+      → Mean: 0.7414 ± 0.0036
+
+  ════════════════════════════════════════════════════════════
+  DINOv2+HuBERT+Swin+ConvNeXt
+  ════════════════════════════════════════════════════════════
+    Aligned: 3094 samples
+    After threshold ≥10: 1946 samples, 89 classes
+
+    PCA=128, Drop=0.3
+      Fold 1: 0.7266
+      Fold 2: 0.7334
+      Fold 3: 0.7307
+      Fold 4: 0.7297
+      Fold 5: 0.7174
+      → Mean: 0.7276 ± 0.0055
+
+    PCA=128, Drop=0.4
+      Fold 1: 0.7275
+      Fold 2: 0.7280
+      Fold 3: 0.7294
+      Fold 4: 0.7293
+      Fold 5: 0.7290
+      → Mean: 0.7286 ± 0.0008
+
+    PCA=256, Drop=0.3
+      Fold 1: 0.7299
+      Fold 2: 0.7469
+      Fold 3: 0.7355
+      Fold 4: 0.7218
+      Fold 5: 0.7284
+      → Mean: 0.7325 ± 0.0084
+
+    PCA=256, Drop=0.4
+      Fold 1: 0.7272
+      Fold 2: 0.7471
+      Fold 3: 0.7310
+      Fold 4: 0.7374
+      Fold 5: 0.7273
+      → Mean: 0.7340 ± 0.0075
+
+
+======================================================================
+  FINAL RESULTS (Threshold ≥10, 89 classes)
+======================================================================
+  ─────────────────────────────────────────────────────────────────
+  Rank | Combo                         | PCA  | Drop | F1      | Std   
+  ─────────────────────────────────────────────────────────────────
+  1    | DINOv2+HuBERT+ConvNeXt        | 256  | 0.4  | 0.7414 | 0.0036 ★
+  2    | DINOv2+HuBERT+ConvNeXt        | 256  | 0.3  | 0.7407 | 0.0026
+  3    | DINOv2+HuBERT+Swin            | 256  | 0.3  | 0.7395 | 0.0018
+  4    | DINOv2+HuBERT+Swin            | 256  | 0.4  | 0.7395 | 0.0024
+  5    | DINOv2+HuBERT+Swin+ConvNeXt   | 256  | 0.4  | 0.7340 | 0.0075
+  6    | DINOv2+HuBERT+Swin+ConvNeXt   | 256  | 0.3  | 0.7325 | 0.0084
+  7    | DINOv2+HuBERT+Swin+ConvNeXt   | 128  | 0.4  | 0.7286 | 0.0008
+  8    | DINOv2+HuBERT+Swin+ConvNeXt   | 128  | 0.3  | 0.7276 | 0.0055
+  9    | DINOv2+HuBERT+ConvNeXt        | 128  | 0.3  | 0.7262 | 0.0040
+  10   | DINOv2+HuBERT+ConvNeXt        | 128  | 0.4  | 0.7261 | 0.0055
+  11   | DINOv2+HuBERT+Swin            | 128  | 0.4  | 0.7252 | 0.0060
+  12   | DINOv2+HuBERT+Swin            | 128  | 0.3  | 0.7236 | 0.0042
+  ─────────────────────────────────────────────────────────────────
+
+  REFERENCE: DINOv2+HuBERT FCN_Balanced (2-modality) = 0.7361
+  BEST:      DINOv2+HuBERT+ConvNeXt (PCA=256, Drop=0.4) = 0.7414 (+0.0053 vs 0.7361)
+======================================================================

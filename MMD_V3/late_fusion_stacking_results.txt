@@ -1,0 +1,102 @@
+======================================================================
+  PHASE 2: LATE FUSION / STACKING
+======================================================================
+  Models: ['HuBERT', 'DINOv2', 'Swin', 'ConvNeXt']
+  Combos: ['HuBERT+DINOv2', 'HuBERT+DINOv2+Swin', 'HuBERT+DINOv2+ConvNeXt', 'HuBERT+DINOv2+Swin+ConvNeXt']
+  Base SVM PCA dim: 128
+  K-Folds: 5
+  Thresholds: [10, 8, 5]
+======================================================================
+
+[1] Loading embeddings...
+    HuBERT: (3095, 768)
+    DINOv2: (3094, 768)
+    Swin: (3094, 1024)
+    ConvNeXt: (3094, 1024)
+
+[2] Aligning samples across all models...
+    Aligned samples: 3094
+    Unique classes: 502
+
+======================================================================
+  THRESHOLD ≥ 10
+======================================================================
+  Classes: 89, Samples: 1946
+
+  [3] Generating out-of-fold SVM probabilities (PCA=128)...
+    Fold 1/5... done
+    Fold 2/5... done
+    Fold 3/5... done
+    Fold 4/5... done
+    Fold 5/5... done
+
+  Individual model OOF Macro-F1:
+    HuBERT: 0.6807
+    DINOv2: 0.6643
+    Swin: 0.6286
+    ConvNeXt: 0.6393
+
+  ────────────────────────────────────────────────────────────
+  Combo: HuBERT+DINOv2
+  ────────────────────────────────────────────────────────────
+    Average Prob:      0.6985
+    Weighted Avg:      0.6976  (weights: HuBERT=0.506, DINOv2=0.494)
+    Stacked LogReg:    0.6303 ± 0.0227
+    Stacked MLP:       0.6574 ± 0.0220
+
+  ────────────────────────────────────────────────────────────
+  Combo: HuBERT+DINOv2+Swin
+  ────────────────────────────────────────────────────────────
+    Average Prob:      0.6944
+    Weighted Avg:      0.6953  (weights: HuBERT=0.345, DINOv2=0.337, Swin=0.318)
+    Stacked LogReg:    0.6481 ± 0.0170
+    Stacked MLP:       0.6493 ± 0.0174
+
+  ────────────────────────────────────────────────────────────
+  Combo: HuBERT+DINOv2+ConvNeXt
+  ────────────────────────────────────────────────────────────
+    Average Prob:      0.7006
+    Weighted Avg:      0.7020  (weights: HuBERT=0.343, DINOv2=0.335, ConvNeXt=0.322)
+    Stacked LogReg:    0.6510 ± 0.0219
+    Stacked MLP:       0.6673 ± 0.0239
+
+  ────────────────────────────────────────────────────────────
+  Combo: HuBERT+DINOv2+Swin+ConvNeXt
+  ────────────────────────────────────────────────────────────
+    Average Prob:      0.6929
+    Weighted Avg:      0.6929  (weights: HuBERT=0.261, DINOv2=0.254, Swin=0.241, ConvNeXt=0.245)
+    Stacked LogReg:    0.6591 ± 0.0138
+    Stacked MLP:       0.6650 ± 0.0187
+
+======================================================================
+  THRESHOLD ≥ 8
+======================================================================
+  Classes: 108, Samples: 2109
+
+  [3] Generating out-of-fold SVM probabilities (PCA=128)...
+    Fold 1/5... done
+    Fold 2/5... done
+    Fold 3/5... done
+    Fold 4/5... done
+    Fold 5/5... done
+
+  Individual model OOF Macro-F1:
+    HuBERT: 0.6346
+    DINOv2: 0.6235
+    Swin: 0.5882
+    ConvNeXt: 0.5966
+
+  ────────────────────────────────────────────────────────────
+  Combo: HuBERT+DINOv2
+  ────────────────────────────────────────────────────────────
+    Average Prob:      0.6538
+    Weighted Avg:      0.6539  (weights: HuBERT=0.504, DINOv2=0.496)
+    Stacked LogReg:    0.6162 ± 0.0201
+    Stacked MLP:       0.6275 ± 0.0137
+
+  ────────────────────────────────────────────────────────────
+  Combo: HuBERT+DINOv2+Swin
+  ────────────────────────────────────────────────────────────
+    Average Prob:      0.6510
+    Weighted Avg:      0.6525  (weights: HuBERT=0.344, DINOv2=0.338, Swin=0.319)
+    Stacked LogReg:    

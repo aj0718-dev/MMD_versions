@@ -33,6 +33,17 @@ models_cache/
 # MMD_V2 excludes vit_vgg_fcn entirely (code + embeddings)
 MMD_V2/vit_vgg_fcn/
 
+# V3 data / generated-output folders
+family_audio/
+family_rgb_images/
+image_embeddings/
+rgb_images/
+MMD_V3/results/
+MMD_V3/vit_vgg_fcn/
+
+# Editor / backup files
+*.bak
+
 # OS files
 .DS_Store
 __MACOSX/
