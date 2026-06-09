@@ -1,0 +1,36 @@
+# Embedding / model folders
+vgg19/
+vit/
+vgg19_wavlm/
+vit_vgg_cross_attn/
+wav2vec2_hubert_wavlm/
+regnety_040/
+static_vgg19_bert/
+vit_vgg_fcn/
+hyperbolic_fusion/
+motif_bert_data/
+
+# Model files
+*.pt
+*.pth
+*.pkl
+*.npz
+
+# Compressed files
+*.zip
+*.7z
+*.tar.gz
+
+# Cache
+__pycache__/
+*.pyc
+.venv/
+venv/
+models_cache/
+
+# OS files
+.DS_Store
+__MACOSX/
+
+# Logs
+*.log
