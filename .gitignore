@@ -6,7 +6,6 @@ vit_vgg_cross_attn/
 wav2vec2_hubert_wavlm/
 regnety_040/
 static_vgg19_bert/
-vit_vgg_fcn/
 hyperbolic_fusion/
 motif_bert_data/
 
@@ -27,6 +26,10 @@ __pycache__/
 .venv/
 venv/
 models_cache/
+
+# Root-level embedding/model copy of vit_vgg_fcn (the code+images copy under
+# MMD_V1/fusion/vit_vgg_fcn/ is tracked; its *.pt files are excluded globally)
+/vit_vgg_fcn/
 
 # OS files
 .DS_Store
