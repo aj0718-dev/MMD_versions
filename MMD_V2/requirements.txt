@@ -1,0 +1,13 @@
+torch
+torchvision
+torchaudio
+transformers
+timm
+scikit-learn
+matplotlib
+seaborn
+soundfile
+pefile
+pillow
+numpy
+pandas

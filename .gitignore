@@ -30,6 +30,8 @@ models_cache/
 # Root-level embedding/model copy of vit_vgg_fcn (the code+images copy under
 # MMD_V1/fusion/vit_vgg_fcn/ is tracked; its *.pt files are excluded globally)
 /vit_vgg_fcn/
+# MMD_V2 excludes vit_vgg_fcn entirely (code + embeddings)
+MMD_V2/vit_vgg_fcn/
 
 # OS files
 .DS_Store
